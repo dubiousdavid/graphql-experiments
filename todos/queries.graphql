@@ -1,3 +1,17 @@
+query getItem {
+  todoItem(id: 123) {
+    id
+    text
+    list {
+      id
+      items {
+        id
+        text
+      }
+    }
+  }
+}
+
 query getList($id: ID!) {
   todoList(id: $id) {
     name

@@ -92,7 +92,7 @@ const resolvers = {
         ? items.filter(({ completed }) => (params.filter == 'completed' ? completed : !completed))
         : items;
       let slicedItems = filteredItems.slice(0, numItems);
-      console.log(slicedItems);
+      // console.log(slicedItems);
 
       return slicedItems;
     }
