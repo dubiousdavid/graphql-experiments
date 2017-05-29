@@ -1,3 +1,19 @@
+# Aliases
+query getItems {
+  item1: todoItem(id: 123) {
+    id
+    text
+    list {
+      listId: id
+      length
+    }
+  }
+  item2: todoItem(id: 124) {
+    text
+  }
+}
+
+# Recursion
 query getItem {
   todoItem(id: 123) {
     id
@@ -12,6 +28,7 @@ query getItem {
   }
 }
 
+# Variables
 query getList($id: ID!) {
   todoList(id: $id) {
     name
@@ -23,19 +40,17 @@ query getList($id: ID!) {
   }
 }
 
-# Variables
 {
   "id": "456"
 }
 
-
+# Mutation
 mutation addItem($item: TodoItemInput) {
   addItem(input: $item) {
     id
   }
 }
 
-# Variables
 {
   "item": {
     "completed": false,
