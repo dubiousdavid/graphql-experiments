@@ -1,0 +1,34 @@
+input TodoItemInput {
+  completed: Boolean!
+  editing: Boolean!
+  listId: ID!
+  text: String
+}
+
+type TodoItem {
+  completed: Boolean!
+  editing: Boolean!
+  id: ID!
+  list: TodoList
+  text: String
+}
+
+type TodoList {
+  id: ID!
+  items(first: Int, filter: TodoListFilter): [TodoItem!]!
+  name: String
+  filter: TodoListFilter
+  owner: User
+}
+
+enum TodoListFilter {
+  all
+  active
+  completed
+}
+
+type User {
+  id: ID!
+  email: String
+  name: String
+}

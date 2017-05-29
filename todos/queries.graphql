@@ -1,0 +1,32 @@
+query getList($id: ID!) {
+  todoList(id: $id) {
+    name
+    items {
+      id
+      text
+      completed
+    }
+  }
+}
+
+# Variables
+{
+  "id": "456"
+}
+
+
+mutation addItem($item: TodoItemInput) {
+  addItem(input: $item) {
+    id
+  }
+}
+
+# Variables
+{
+  "item": {
+    "completed": false,
+    "editing": false,
+    "listId": "456",
+    "text": "Butter"
+  }
+}

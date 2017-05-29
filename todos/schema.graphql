@@ -1,0 +1,13 @@
+type Query {
+  todoItem(id: ID!): TodoItem
+  todoList(id: ID!): TodoList
+}
+
+type Mutation {
+  addItem(input: TodoItemInput): TodoItem
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
