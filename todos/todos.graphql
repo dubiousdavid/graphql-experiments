@@ -19,6 +19,7 @@ type TodoList {
   name: String
   filter: TodoListFilter
   owner: User
+  length: Int
 }
 
 enum TodoListFilter {
