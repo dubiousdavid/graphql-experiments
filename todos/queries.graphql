@@ -1,15 +1,19 @@
-# Aliases
-query getItems {
+# Fragments/Aliases
+{
   item1: todoItem(id: 123) {
-    id
-    text
-    list {
-      listId: id
-      length
-    }
+    ...itemDetails
   }
   item2: todoItem(id: 124) {
-    text
+    ...itemDetails
+  }
+}
+
+fragment itemDetails on TodoItem {
+  id
+  text
+  list {
+    listId: id
+    length
   }
 }
 
@@ -32,7 +36,7 @@ query getItem {
 query getList($id: ID!) {
   todoList(id: $id) {
     name
-    items {
+    items(first: 2) {
       id
       text
       completed
